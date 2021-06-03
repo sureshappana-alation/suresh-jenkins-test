@@ -1,8 +1,8 @@
-import JenkinsTemplateConfig
+import SureshJenkinsTestConfig
 import alation.jobdsl.jobs.*
 
 // initialize framework
-JenkinsTemplateConfig.bind(binding)
+SureshJenkinsTestConfig.bind(binding)
 
 // generate Seed Jobs
 new SeedSubfolderJob().generate()
