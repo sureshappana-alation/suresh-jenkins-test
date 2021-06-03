@@ -1,0 +1,41 @@
+apply plugin: 'groovy'
+
+configurations {
+    localDependencies
+    localDependencies.transitive = false
+}
+
+repositories {
+    maven { url "https://${artifactoryDNS}/artifactory/jenkins-core" }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    localDependencies "${alationJobDSLGroup}:${alationJobDSLProject}:${alationJobDSLVersion}"
+    compile configurations.localDependencies
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['jobdsl']
+        }
+    }
+}
+
+task setupSeedClasspath(dependsOn: 'setupSeedResources', type: Copy) {
+    from configurations.localDependencies
+    into "${project.projectDir}/../libs/jobdsl/"
+}
+
+task setupSeedResources(type: Copy){
+    from zipTree(configurations.localDependencies.singleFile)
+    // Add the path to include files which are necessary for the jobs that will be seeded
+    // Chef Repositories need files in chef/cookbook and JiraPublisher job needs changelog.txt
+    include('changelog.txt','chef/cookbook/**','alation/jobdsl/scripts/**')
+    into file("${project.projectDir}/../libs/jobdsl/")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
