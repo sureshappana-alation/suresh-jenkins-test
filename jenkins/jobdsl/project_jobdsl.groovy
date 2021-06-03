@@ -1,16 +1,16 @@
-import JenkinsTemplateConfig
-import JenkinsTemplateCompileJob
+import SureshJenkinsTestConfig
+import SureshJenkinsTestCompileJob
 import alation.jobdsl.DslEnv
 import alation.jobdsl.jobs.*
 import alation.jobdsl.jobs.chef.*
 
 // initialize framework
-JenkinsTemplateConfig.bind(binding)
+SureshJenkinsTestConfig.bind(binding)
 
 if (DslEnv.targetFolderIsProjectRoot()) {
     new GithubPullRequestHookJob().generate()
 }
 
-new JenkinsTemplateBuildJob().generate()
-new JenkinsTemplateSmokeJob().generate()
+new SureshJenkinsTestBuildJob().generate()
+new SureshJenkinsTestSmokeJob().generate()
 new GithubPushHookJob().generate()

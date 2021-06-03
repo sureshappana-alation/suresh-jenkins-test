@@ -3,10 +3,10 @@ import alation.jobdsl.EnvVar
 import alation.jobdsl.Label
 import alation.jobdsl.jobs.ChildJob
 
-class JenkinsTemplateCompileJob extends ChildJob {
+class SureshJenkinsTestCompileJob extends ChildJob {
 
     // This compile job can be extended to have a test subType
-    protected JenkinsTemplateCompileJob(compileFlavour) {
+    protected SureshJenkinsTestCompileJob(compileFlavour) {
         super('compile', [compileFlavour])
         this.labels = [
                 'uname:' + compileFlavour,

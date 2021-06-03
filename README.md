@@ -10,10 +10,10 @@ It may seem like a lot of steps, but going down this path is dangerous...
 * Create branch
   * `cd /path/to/your/repo/jenkins`
 * Rename all scripts and Class Name to match your project.
-  * `jobdsl/JenkinsTemplateBuildJob.groovy` - rename file and class name.
-  * `jobdsl/JenkinsTemplateCompileJob.groovy` - rename file and class name
-  * `jobdsl/JenkinsTemplateConfig.groovy` - rename file and binding name with repo name.
-  * `jobdsl/JenkinsTemplateSmokeJob.groovy` - rename file and class name
+  * `jobdsl/SureshJenkinsTestBuildJob.groovy` - rename file and class name.
+  * `jobdsl/SureshJenkinsTestCompileJob.groovy` - rename file and class name
+  * `jobdsl/SureshJenkinsTestConfig.groovy` - rename file and binding name with repo name.
+  * `jobdsl/SureshJenkinsTestSmokeJob.groovy` - rename file and class name
   * `jobdsl/project_jobdsl.groovy` - use your class names
   * `jobdsl/seed_jobdsl.groovy`
 * Create a private branch, push to Github, and open a PR

@@ -1,11 +1,11 @@
-import JenkinsTemplateCompileJob
+import SureshJenkinsTestCompileJob
 import alation.jobdsl.DslEnv
 import alation.jobdsl.jobs.BuildJob
 
-class JenkinsTemplateSmokeJob extends BuildJob {
+class SureshJenkinsTestSmokeJob extends BuildJob {
 
     // allow override of job name
-    protected JenkinsTemplateSmokeJob(jobName = BuildJob.jobSmoke) {
+    protected SureshJenkinsTestSmokeJob(jobName = BuildJob.jobSmoke) {
         super(jobName)
     }
 
@@ -17,7 +17,7 @@ class JenkinsTemplateSmokeJob extends BuildJob {
         this.environmentVariables.envs['SHELL_DIR'] = '${WORKSPACE}/jenkins/shell'
 
         this.steps {
-            shell('${SHELL_DIR}/JenkinsTemplateSmokeJob.sh')
+            shell('${SHELL_DIR}/SureshJenkinsTestSmokeJob.sh')
         }
     }
 }

@@ -2,9 +2,9 @@ import alation.jobdsl.jobs.BuildJob
 
 // repeat steps form the JenkinsSmokeJob
 // and extend with other steps
-class JenkinsTemplateBuildJob extends JenkinsTemplateSmokeJob {
+class SureshJenkinsTestBuildJob extends SureshJenkinsTestSmokeJob {
 
-    protected JenkinsTemplateBuildJob() {
+    protected SureshJenkinsTestBuildJob() {
         super(BuildJob.jobBuild)
     }
 
@@ -16,7 +16,7 @@ class JenkinsTemplateBuildJob extends JenkinsTemplateSmokeJob {
         this.environmentVariables.envs['SHELL_DIR'] = '${WORKSPACE}/jenkins/shell'
 
         this.steps {
-            shell('${SHELL_DIR}/JenkinsTemplateBuildJob.sh')
+            shell('${SHELL_DIR}/SureshJenkinsTestBuildJob.sh')
         }
 
         this.publishers.archiveArtifacts.with {
